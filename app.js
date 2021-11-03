@@ -41,6 +41,7 @@ app.post('/makepayment', (req, res, next) => {
   const reference = `newTicketId-${uniqID.v1()}` // generate refe
   // service charge : 137.5
   let _totalprice = parseFloat(totalprice) + 137.5
+  console.log(_totalprice)
   let data = {
     amount: _totalprice * 100,
     email,
@@ -59,6 +60,8 @@ app.post('/makepayment', (req, res, next) => {
       ],
     },
   }
+
+  console.log(data)
 
   const saveTicket = new userTickets({
     ticketId: reference,
